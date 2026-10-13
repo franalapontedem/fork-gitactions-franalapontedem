@@ -1,0 +1,17 @@
+name: Tarea1
+on:
+  workflow_dispatch:
+env:
+  NUMERO_PI: 3.141592
+jobs:
+  Job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: MostrarPorPantalla 
+        run: echo "El número pi es ${{env.NUMERO_PI}} (Job1)"
+  Job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: MostrarPorPantalla2
+        run: echo "El número pi es ${{env.NUMERO_PI}} (Job2)"       
+  
