@@ -1,0 +1,37 @@
+name: Tarea2
+
+on:
+  workflow_dispatch:
+    inputs:
+      intento:
+        description: "Contraseña de prueba (solo ficticia)"
+        required: true
+        type: string
+
+jobs:
+  Job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular login
+        env:
+          PASSWORD_GUARDADA: ${{ secrets.Tarea2 }}
+          PASSWORD_INTRODUCIDA: ${{ inputs.intento }}
+        run: |
+          # -z comprueba si una cadena está vacía.
+          # -n comprueba lo contrario: si tiene contenido.
+          # Esta comprobación evita aceptar dos contraseñas vacías.
+          if [ -z "$PASSWORD_GUARDADA" ]; then
+            echo "No se ha configurado el secreto Tarea2"
+            exit 1
+          fi
+
+          # Con un secreto ficticio, GitHub debería mostrar *** en el log.
+          echo "Contraseña guardada: $PASSWORD_GUARDADA"
+
+          # Compara la contraseña introducida con la guardada.
+          if [ "$PASSWORD_INTRODUCIDA" = "$PASSWORD_GUARDADA" ]; then
+            echo "Login simulado correcto"
+          else
+            echo "Login simulado incorrecto"
+            exit 1
+          fi
