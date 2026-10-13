@@ -11,4 +11,4 @@ jobs:
         run: |
           curTime=$(date)
           echo "currenttime=${curTime}" >> $GITHUB_OUTPUT
-      - run: echo "The time for the early step is ${{ steps.get-time.output.currenttime }}"
+      - run: echo "The time for the early step is ${{steps.get-time.output.currenttime}}"
