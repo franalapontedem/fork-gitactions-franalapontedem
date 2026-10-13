@@ -6,9 +6,9 @@ jobs:
     name: "Let's greet the user!"
     runs-on: ubuntu-latest
     steps:
-      - id: get_time
-        name: Grab the current get_time
+      - id: get-time
+        name: Grab the current get-time
         run: |
           curTime=$(date)
           echo "currenttime=${curTime}" >> $GITHUB_OUTPUT
-      - run: echo "The time for the early step is ${{ steps.get_time.output.currenttime }}"
+      - run: echo "The time for the early step is ${{ steps.get-time.output.currenttime }}"
