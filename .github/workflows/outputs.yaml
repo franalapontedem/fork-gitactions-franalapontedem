@@ -3,12 +3,12 @@ on:
   workflow_dispatch:
 jobs:
   say_hello:
-  name: "Let's greet the user!"
-  runs-on: ubuntu-latest
-  steps:
-    - id: get_time
-      name: Grab the current get_time
-      run: |
-        curTime=$(date)
-        echo "currenttime=${curTime}" >> $GITHUB_OUTPUT
-    - run: echo "The time for the early step is ${{steps.get-time.output.currenttime}}"
+    name: "Let's greet the user!"
+    runs-on: ubuntu-latest
+    steps:
+      - id: get_time
+        name: Grab the current get_time
+        run: |
+          curTime=$(date)
+          echo "currenttime=${curTime}" >> $GITHUB_OUTPUT
+      - run: echo "The time for the early step is ${{steps.get-time.output.currenttime}}"
