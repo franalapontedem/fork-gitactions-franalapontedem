@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: get-time
-        name: Grab the current get-time
+        name: Grab the current time
         run: |
           curTime=$(date)
           echo "currenttime=${curTime}" >> $GITHUB_OUTPUT
